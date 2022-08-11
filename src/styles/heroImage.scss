@@ -1,0 +1,111 @@
+$loader-iteration-count: infinite;
+$loader-direction: normal;
+$transition-duration: 0.3s;
+$transition-easing: cubic-bezier(0.5, 0, 0.5, 1);
+$animation-duration: 0.8s;
+
+.hero-image {
+  background-color: red;
+  height: 650px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  img {
+    max-height: 450px;
+    display: block;
+  }
+  .placeholder {
+    width: 400px;
+    height: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .loading {
+      background-color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 40%;
+      display: block;
+      &.one {
+        animation-name: rollercoaster;
+        animation-duration: $animation-duration;
+        animation-fill-mode: both;
+        animation-iteration-count: $loader-iteration-count;
+      }
+      &.two {
+        animation-name: rollercoaster2;
+        animation-duration: $animation-duration;
+        animation-fill-mode: both;
+        animation-iteration-count: $loader-iteration-count;
+      }
+      @keyframes rollercoaster {
+
+        0%   {
+           transform: rotate(135deg);
+        }
+        8%  {
+           transform: rotate(240deg);
+        }
+
+        20%{
+           transform: rotate(300deg);
+        }
+
+        40%{
+           transform: rotate(380deg);
+        }
+        45%{
+           transform: rotate(440deg);
+        }
+        50%{
+           transform: rotate(495deg);
+          opacity: 1;
+        }
+        50.1%{
+           transform: rotate(495deg);
+          opacity: 0;
+        }
+        100%{
+           transform: rotate(495deg);
+          opacity: 0;
+        }
+
+      }
+
+      @keyframes rollercoaster2 {
+        0%{
+          opacity: 0;
+        }
+        49.9%{
+          opacity: 0;
+        }
+        50%   {
+          opacity:1;
+           transform: rotate(-45deg);
+        }
+        58%  {
+           transform: rotate(-160deg);
+        }
+
+        70%{
+           transform: rotate(-240deg);
+        }
+
+        80%{
+           transform: rotate(-300deg);
+        }
+
+        90%{
+           transform: rotate(-340deg);
+        }
+
+        100%{
+           transform: rotate(-405deg);
+        }
+
+      }
+    }
+  }
+}
